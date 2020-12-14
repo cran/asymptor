@@ -12,7 +12,7 @@ df <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 head(df)
 
 ## -----------------------------------------------------------------------------
-asy <- estimate_asympto(df)
+asy <- estimate_asympto(df$date, df$new_cases, df$new_deaths)
 
 ## -----------------------------------------------------------------------------
 df <- merge(df, asy)

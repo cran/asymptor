@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version-ago/asymptor)](https://CRAN.R-project.org/package=asymptor)
 [![R build
 status](https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg)](https://github.com/Bisaloo/asymptor/actions)
 [![Lifecycle:
@@ -21,7 +23,13 @@ al. (2020)](https://doi.org/10.1101/2020.07.14.20153445).
 
 ## Installation
 
-You can install the development version of asymptor from GitHub with:
+You can install the stable version of this package from CRAN:
+
+``` r
+install.packages("asymptor")
+```
+
+or the development version from GitHub:
 
 ``` r
 # install.packages("remotes")
