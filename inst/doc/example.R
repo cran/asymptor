@@ -13,13 +13,22 @@ head(df)
 
 ## -----------------------------------------------------------------------------
 asy <- estimate_asympto(df$date, df$new_cases, df$new_deaths)
+head(asy)
 
 ## -----------------------------------------------------------------------------
-df <- merge(df, asy)
+res <- merge(df, asy)
+head(res)
+
+## ---- eval = require("dplyr")-------------------------------------------------
+library(dplyr)
+res <- df %>%
+  mutate(lower = estimate_asympto(date, new_cases, new_deaths, "lower")$lower,
+         upper = estimate_asympto(date, new_cases, new_deaths, "upper")$upper)
+head(res)
 
 ## ---- example_fig, fig.height = 4.5, fig.width = 9, out.width='100%'----------
 library(ggplot2)
-ggplot(df, aes(x = date)) +
+ggplot(res, aes(x = date)) +
   geom_line(aes(y = new_cases+lower), col = "grey30") +
   geom_ribbon(aes(ymin = new_cases+lower, 
                   ymax = new_cases+upper), 
